@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:huis_light/ui/kitchen_page/kitchen_page.dart';
+import 'package:huis_light/ui/add_device/add_device.dart';
 
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "PlusSans",
       ),
-      home:  const KitchenPage(),
+      home:  const AddDevicePage(),
     );
   }
 }
