@@ -4,7 +4,7 @@ import 'package:huis_light/app_rought/app_rought.dart';
 import 'package:huis_light/helper/app_colors/app_colors.dart';
 import 'package:huis_light/helper/static_values/static_values.dart';
 import 'package:huis_light/media_quary/media_quary.dart';
-import 'package:huis_light/ui/home_page/home_preview/home_preview.dart';
+import 'package:huis_light/ui/add_device/add_device.dart';
 import 'package:huis_light/ui/home_page/invite_member/invite_member.dart';
 
 class LogoutOverlay extends StatefulWidget {
@@ -181,7 +181,7 @@ class _DropDownItemsBoxState extends State<DropDownItemsBox> {
                 });
                 pushToNextPage(
                   context: context,
-                  className: const MangeHomeDevice(),
+                  className: const AddDevicePage(),
                 );
               },
               onLongPress: null,

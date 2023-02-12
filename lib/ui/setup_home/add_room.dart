@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:huis_light/app_comp/large_btn.dart';
 import 'package:huis_light/app_rought/app_rought.dart';
+import 'package:huis_light/bottom_page/bottom_page.dart';
 import 'package:huis_light/helper/app_colors/app_colors.dart';
-import 'package:huis_light/ui/home_page/home_page.dart';
 
 class AddRoom extends StatefulWidget {
   const AddRoom({super.key});
@@ -70,7 +70,7 @@ class _AddRoomState extends State<AddRoom> {
                   onPressed: () {
                     pushToNextPage(
                       context: context,
-                      className: const HomePage(),
+                      className: const BottomPage(),
                     );
                   },
                 ),

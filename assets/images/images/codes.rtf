@@ -1,0 +1,509 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red70\green137\blue204;\red23\green23\blue23;\red202\green202\blue202;
+\red194\green126\blue101;\red67\green192\blue160;\red140\green211\blue254;\red212\green214\blue154;\red183\green111\blue179;
+\red167\green197\blue152;\red66\green179\blue255;\red89\green138\blue67;\red205\green173\blue106;}
+{\*\expandedcolortbl;;\cssrgb\c33725\c61176\c83922;\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;
+\cssrgb\c80784\c56863\c47059;\cssrgb\c30588\c78824\c69020;\cssrgb\c61176\c86275\c99608;\cssrgb\c86275\c86275\c66667;\cssrgb\c77255\c52549\c75294;
+\cssrgb\c70980\c80784\c65882;\cssrgb\c30980\c75686\c100000;\cssrgb\c41569\c60000\c33333;\cssrgb\c84314\c72941\c49020;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 import\cf4 \strokec4  \cf5 \strokec5 'package:dots_indicator/dots_indicator.dart'\cf4 \strokec4 ;\cb1 \
+\cf2 \cb3 \strokec2 import\cf4 \strokec4  \cf5 \strokec5 'package:flutter/material.dart'\cf4 \strokec4 ;\cb1 \
+\cf2 \cb3 \strokec2 import\cf4 \strokec4  \cf5 \strokec5 'package:flutter_svg/svg.dart'\cf4 \strokec4 ;\cb1 \
+\
+\cf2 \cb3 \strokec2 class\cf4 \strokec4  \cf6 \strokec6 SelectPaymentMethods\cf4 \strokec4  \cf2 \strokec2 extends\cf4 \strokec4  \cf6 \strokec6 StatefulWidget\cf4 \strokec4  \{\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb3   \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SelectPaymentMethods\cf4 \strokec4 (\{\cf2 \strokec2 super\cf4 \strokec4 .\cf7 \strokec7 key\cf4 \strokec4 \});\cb1 \
+\
+\cb3   \cf7 \strokec7 @override\cf4 \cb1 \strokec4 \
+\cb3   \cf6 \strokec6 State\cf4 \strokec4 <\cf6 \strokec6 SelectPaymentMethods\cf4 \strokec4 > \cf8 \strokec8 createState\cf4 \strokec4 () => \cf6 \strokec6 _SelectPaymentMethodsState\cf4 \strokec4 ();\cb1 \
+\cb3 \}\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \strokec2 class\cf4 \strokec4  \cf6 \strokec6 _SelectPaymentMethodsState\cf4 \strokec4  \cf2 \strokec2 extends\cf4 \strokec4  \cf6 \strokec6 State\cf4 \strokec4 <\cf6 \strokec6 SelectPaymentMethods\cf4 \strokec4 > \{\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb3   \cf6 \strokec6 ScrollController\cf4 \strokec4  \cf7 \strokec7 scrollController\cf4 \strokec4  = \cf6 \strokec6 ScrollController\cf4 \strokec4 ();\cb1 \
+\cb3   \cf6 \strokec6 List\cf4 \strokec4 <\cf6 \strokec6 Map\cf4 \strokec4 <\cf6 \strokec6 String\cf4 \strokec4 , \cf6 \strokec6 dynamic\cf4 \strokec4 >> \cf7 \strokec7 imageList\cf4 \strokec4  = [\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf5 \strokec5 "image"\cf4 \strokec4 : \cf5 \strokec5 "taptopay"\cf4 \strokec4 ,\cb1 \
+\cb3       \cf5 \strokec5 "name"\cf4 \strokec4 : \cf5 \strokec5 "Tap to Pay"\cf4 \strokec4 ,\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf5 \strokec5 "image"\cf4 \strokec4 : \cf5 \strokec5 "applepay"\cf4 \strokec4 ,\cb1 \
+\cb3       \cf5 \strokec5 "name"\cf4 \strokec4 : \cf5 \strokec5 "Apple Pay"\cf4 \strokec4 ,\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf5 \strokec5 "image"\cf4 \strokec4 : \cf5 \strokec5 "manualentry"\cf4 \strokec4 ,\cb1 \
+\cb3       \cf5 \strokec5 "name"\cf4 \strokec4 : \cf5 \strokec5 "Manual  Entry"\cf4 \strokec4 ,\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf5 \strokec5 "image"\cf4 \strokec4 : \cf5 \strokec5 "paypal"\cf4 \strokec4 ,\cb1 \
+\cb3       \cf5 \strokec5 "name"\cf4 \strokec4 : \cf5 \strokec5 "PayPal"\cf4 \strokec4 ,\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf5 \strokec5 "image"\cf4 \strokec4 : \cf5 \strokec5 "savedcards"\cf4 \strokec4 ,\cb1 \
+\cb3       \cf5 \strokec5 "name"\cf4 \strokec4 : \cf5 \strokec5 "Saved Cards"\cf4 \strokec4 ,\cb1 \
+\cb3     \},\cb1 \
+\cb3     \{\cb1 \
+\cb3       \cf5 \strokec5 "image"\cf4 \strokec4 : \cf5 \strokec5 "samsung"\cf4 \strokec4 ,\cb1 \
+\cb3       \cf5 \strokec5 "name"\cf4 \strokec4 : \cf5 \strokec5 "Samsung Pay"\cf4 \strokec4 ,\cb1 \
+\cb3     \},\cb1 \
+\cb3   ];\cb1 \
+\cb3   \cf7 \strokec7 @override\cf4 \cb1 \strokec4 \
+\cb3   \cf2 \strokec2 void\cf4 \strokec4  \cf8 \strokec8 initState\cf4 \strokec4 () \{\cb1 \
+\cb3     \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf8 \strokec8 addListener\cf4 \strokec4 (() \{\cb1 \
+\cb3       \cf8 \strokec8 setState\cf4 \strokec4 (() \{\});\cb1 \
+\cb3     \});\cb1 \
+\cb3     \cf2 \strokec2 super\cf4 \strokec4 .\cf8 \strokec8 initState\cf4 \strokec4 ();\cb1 \
+\cb3   \}\cb1 \
+\
+\cb3   \cf7 \strokec7 @override\cf4 \cb1 \strokec4 \
+\cb3   \cf6 \strokec6 Widget\cf4 \strokec4  \cf8 \strokec8 build\cf4 \strokec4 (\cf6 \strokec6 BuildContext\cf4 \strokec4  \cf7 \strokec7 context\cf4 \strokec4 ) \{\cb1 \
+\cb3     \cf9 \strokec9 return\cf4 \strokec4  \cf6 \strokec6 Scaffold\cf4 \strokec4 (\cb1 \
+\cb3       \cf7 \strokec7 appBar\cf4 \strokec4 : \cf6 \strokec6 AppBar\cf4 \strokec4 (\cb1 \
+\cb3         \cf7 \strokec7 iconTheme\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 IconThemeData\cf4 \strokec4 (\cb1 \
+\cb3           \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3         ),\cb1 \
+\cb3         \cf7 \strokec7 leading\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 BackButton\cf4 \strokec4 (\cb1 \
+\cb3           \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3         ),\cb1 \
+\cb3         \cf7 \strokec7 title\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3           \cf5 \strokec5 "Select  Payment Method"\cf4 \strokec4 ,\cb1 \
+\cb3           \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3             \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 16.0\cf4 \strokec4 ,\cb1 \
+\cb3             \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3             \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w700\cf4 \strokec4 ,\cb1 \
+\cb3           ),\cb1 \
+\cb3         ),\cb1 \
+\cb3         \cf7 \strokec7 actions\cf4 \strokec4 : [\cb1 \
+\cb3           \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3             \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3               \cf6 \strokec6 ElevatedButton\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 ElevatedButton\cf4 \strokec4 .\cf8 \strokec8 styleFrom\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 shape\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 CircleBorder\cf4 \strokec4 (),\cb1 \
+\cb3                   \cf7 \strokec7 backgroundColor\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPrimaryColor\cf4 \strokec4 ,\cb1 \
+\cb3                 ),\cb1 \
+\cb3                 \cf7 \strokec7 onPressed\cf4 \strokec4 : () \{\},\cb1 \
+\cb3                 \cf7 \strokec7 child\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Icon\cf4 \strokec4 (\cb1 \
+\cb3                   \cf6 \strokec6 Icons\cf4 \strokec4 .\cf7 \strokec7 notifications_none\cf4 \strokec4 ,\cb1 \
+\cb3                   \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                 ),\cb1 \
+\cb3               ),\cb1 \
+\cb3             ],\cb1 \
+\cb3           )\cb1 \
+\cb3         ],\cb1 \
+\cb3         \cf7 \strokec7 backgroundColor\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kDarkPurple3\cf4 \strokec4 ,\cb1 \
+\cb3       ),\cb1 \
+\cb3       \cf7 \strokec7 body\cf4 \strokec4 : \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3         \cf7 \strokec7 height\cf4 \strokec4 : \cf6 \strokec6 double\cf4 \strokec4 .\cf7 \strokec7 infinity\cf4 \strokec4 ,\cb1 \
+\cb3         \cf7 \strokec7 width\cf4 \strokec4 : \cf6 \strokec6 double\cf4 \strokec4 .\cf7 \strokec7 infinity\cf4 \strokec4 ,\cb1 \
+\cb3         \cf7 \strokec7 decoration\cf4 \strokec4 : \cf6 \strokec6 BoxDecoration\cf4 \strokec4 (\cb1 \
+\cb3           \cf7 \strokec7 gradient\cf4 \strokec4 : \cf7 \strokec7 appGradientDecoration\cf4 \strokec4 ,\cb1 \
+\cb3         ),\cb1 \
+\cb3         \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3           \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 12.0\cf4 \strokec4 ,\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf6 \strokec6 Divider\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 endIndent\cf4 \strokec4 : \cf10 \strokec10 20\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 indent\cf4 \strokec4 : \cf10 \strokec10 20\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPurple2\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 thickness\cf4 \strokec4 : \cf10 \strokec10 1.5\cf4 \strokec4 ,\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ,\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3               \cf5 \strokec5 "Swipe to Select Method"\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 12.0\cf4 \strokec4 ,\cb1 \
+\cb3                 \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                 \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3               ),\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 24.0\cf4 \strokec4 ,\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf6 \strokec6 Row\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                 \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                     \cf6 \strokec6 GestureDetector\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 onTap\cf4 \strokec4 : () \{\cb1 \
+\cb3                         \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf8 \strokec8 animateTo\cf4 \strokec4 (\cb1 \
+\cb3                           \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf7 \strokec7 position\cf4 \strokec4 .\cf7 \strokec7 minScrollExtent\cf4 \strokec4 ,\cb1 \
+\cb3                           \cf7 \strokec7 duration\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Duration\cf4 \strokec4 (\cf7 \strokec7 seconds\cf4 \strokec4 : \cf10 \strokec10 2\cf4 \strokec4 ),\cb1 \
+\cb3                           \cf7 \strokec7 curve\cf4 \strokec4 : \cf6 \strokec6 Curves\cf4 \strokec4 .\cf7 \strokec7 fastOutSlowIn\cf4 \strokec4 ,\cb1 \
+\cb3                         );\cb1 \
+\cb3                       \},\cb1 \
+\cb3                       \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Icon\cf4 \strokec4 (\cb1 \
+\cb3                         \cf6 \strokec6 Icons\cf4 \strokec4 .\cf7 \strokec7 arrow_left\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 size\cf4 \strokec4 : \cf10 \strokec10 40\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 color\cf4 \strokec4 : \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf7 \strokec7 positions\cf4 \strokec4 .\cf7 \strokec7 isEmpty\cf4 \cb1 \strokec4 \
+\cb3                             ? \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kGrey\cf4 \cb1 \strokec4 \
+\cb3                             : \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf7 \strokec7 position\cf4 \strokec4 .\cf7 \strokec7 pixels\cf4 \strokec4  > \cf10 \strokec10 340\cf4 \cb1 \strokec4 \
+\cb3                                 ? \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPurple3\cf4 \cb1 \strokec4 \
+\cb3                                 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kGrey\cf4 \strokec4 ,\cb1 \
+\cb3                       ),\cb1 \
+\cb3                     ),\cb1 \
+\cb3                   ],\cb1 \
+\cb3                 ),\cb1 \
+\cb3                 \cf6 \strokec6 Expanded\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 130\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 ListView\cf4 \strokec4 .\cf8 \strokec8 builder\cf4 \strokec4 (\cb1 \
+\cb3                         \cf7 \strokec7 scrollDirection\cf4 \strokec4 : \cf6 \strokec6 Axis\cf4 \strokec4 .\cf11 \strokec11 horizontal\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 shrinkWrap\cf4 \strokec4 : \cf2 \strokec2 true\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 controller\cf4 \strokec4 : \cf7 \strokec7 scrollController\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 itemCount\cf4 \strokec4 : \cf7 \strokec7 imageList\cf4 \strokec4 .\cf7 \strokec7 length\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 itemBuilder\cf4 \strokec4 : (\cf7 \strokec7 ctx\cf4 \strokec4 , \cf7 \strokec7 index\cf4 \strokec4 ) \{\cb1 \
+\cb3                           \cf9 \strokec9 return\cf4 \strokec4  \cf6 \strokec6 Padding\cf4 \strokec4 (\cb1 \
+\cb3                             \cf7 \strokec7 padding\cf4 \strokec4 : \cf6 \strokec6 EdgeInsets\cf4 \strokec4 .\cf8 \strokec8 only\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 left\cf4 \strokec4 : \cf10 \strokec10 14\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 right\cf4 \strokec4 : \cf7 \strokec7 index\cf4 \strokec4  == \cf10 \strokec10 5\cf4 \strokec4  ? \cf10 \strokec10 14\cf4 \strokec4  : \cf10 \strokec10 0\cf4 \strokec4 ,\cb1 \
+\cb3                             ),\cb1 \
+\cb3                             \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                                 \cf6 \strokec6 Image\cf4 \strokec4 .\cf8 \strokec8 asset\cf4 \strokec4 (\cb1 \
+\cb3                                     \cf5 \strokec5 "assets/images/\cf4 \strokec4 $\{\cf7 \strokec7 imageList\cf4 \strokec4 [\cf7 \strokec7 index\cf4 \strokec4 ][\cf5 \strokec5 "image"\cf4 \strokec4 ]\}\cf5 \strokec5 .png"\cf4 \strokec4 ),\cb1 \
+\cb3                                 \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 12.0\cf4 \strokec4 ,\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                                 \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf7 \strokec7 imageList\cf4 \strokec4 [\cf7 \strokec7 index\cf4 \strokec4 ][\cf5 \strokec5 "name"\cf4 \strokec4 ],\cb1 \
+\cb3                                   \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 style\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                     \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 10.0\cf4 \strokec4 ,\cb1 \
+\cb3                                     \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                                     \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w500\cf4 \strokec4 ,\cb1 \
+\cb3                                   ),\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                               ],\cb1 \
+\cb3                             ),\cb1 \
+\cb3                           );\cb1 \
+\cb3                         \}),\cb1 \
+\cb3                   ),\cb1 \
+\cb3                 ),\cb1 \
+\cb3                 \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                     \cf6 \strokec6 GestureDetector\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 onTap\cf4 \strokec4 : () \{\cb1 \
+\cb3                         \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf8 \strokec8 animateTo\cf4 \strokec4 (\cb1 \
+\cb3                           \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf7 \strokec7 position\cf4 \strokec4 .\cf7 \strokec7 maxScrollExtent\cf4 \strokec4 ,\cb1 \
+\cb3                           \cf7 \strokec7 duration\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Duration\cf4 \strokec4 (\cf7 \strokec7 seconds\cf4 \strokec4 : \cf10 \strokec10 2\cf4 \strokec4 ),\cb1 \
+\cb3                           \cf7 \strokec7 curve\cf4 \strokec4 : \cf6 \strokec6 Curves\cf4 \strokec4 .\cf7 \strokec7 fastOutSlowIn\cf4 \strokec4 ,\cb1 \
+\cb3                         );\cb1 \
+\cb3                       \},\cb1 \
+\cb3                       \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Icon\cf4 \strokec4 (\cb1 \
+\cb3                         \cf6 \strokec6 Icons\cf4 \strokec4 .\cf7 \strokec7 arrow_right\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 size\cf4 \strokec4 : \cf10 \strokec10 40\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPurple3\cf4 \strokec4 ,\cb1 \
+\cb3                       ),\cb1 \
+\cb3                     ),\cb1 \
+\cb3                   ],\cb1 \
+\cb3                 ),\cb1 \
+\cb3               ],\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 12.0\cf4 \strokec4 ,\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf6 \strokec6 Center\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 DotsIndicator\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 dotsCount\cf4 \strokec4 : \cf10 \strokec10 2\cf4 \strokec4 ,\cb1 \
+\cb3                 \cf7 \strokec7 position\cf4 \strokec4 : \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf7 \strokec7 positions\cf4 \strokec4 .\cf7 \strokec7 isEmpty\cf4 \cb1 \strokec4 \
+\cb3                     ? \cf10 \strokec10 0\cf4 \cb1 \strokec4 \
+\cb3                     : \cf7 \strokec7 scrollController\cf4 \strokec4 .\cf7 \strokec7 position\cf4 \strokec4 .\cf7 \strokec7 pixels\cf4 \strokec4  > \cf10 \strokec10 340\cf4 \cb1 \strokec4 \
+\cb3                         ? \cf10 \strokec10 1\cf4 \cb1 \strokec4 \
+\cb3                         : \cf10 \strokec10 0\cf4 \strokec4 ,\cb1 \
+\cb3                 \cf7 \strokec7 decorator\cf4 \strokec4 : \cf6 \strokec6 DotsDecorator\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kGrey\cf4 \strokec4 , \cf12 \strokec12 // Inactive color\cf4 \cb1 \strokec4 \
+\cb3                   \cf7 \strokec7 activeColor\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kGreen2\cf4 \strokec4 ,\cb1 \
+\cb3                 ),\cb1 \
+\cb3               ),\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 12.0\cf4 \strokec4 ,\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf6 \strokec6 Expanded\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 width\cf4 \strokec4 : \cf6 \strokec6 double\cf4 \strokec4 .\cf7 \strokec7 infinity\cf4 \strokec4 ,\cb1 \
+\cb3                 \cf7 \strokec7 decoration\cf4 \strokec4 : \cf6 \strokec6 BoxDecoration\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 gradient\cf4 \strokec4 : \cf6 \strokec6 LinearGradient\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 begin\cf4 \strokec4 : \cf6 \strokec6 Alignment\cf4 \strokec4 .\cf7 \strokec7 topCenter\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 end\cf4 \strokec4 : \cf6 \strokec6 Alignment\cf4 \strokec4 .\cf7 \strokec7 bottomCenter\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 colors\cf4 \strokec4 : [\cb1 \
+\cb3                       \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kDarkPurple\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kDarkPurple2\cf4 \strokec4 ,\cb1 \
+\cb3                     ],\cb1 \
+\cb3                   ),\cb1 \
+\cb3                   \cf7 \strokec7 borderRadius\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 BorderRadius\cf4 \strokec4 .\cf8 \strokec8 only\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 topLeft\cf4 \strokec4 : \cf6 \strokec6 Radius\cf4 \strokec4 .\cf8 \strokec8 circular\cf4 \strokec4 (\cf10 \strokec10 24.0\cf4 \strokec4 ),\cb1 \
+\cb3                     \cf7 \strokec7 topRight\cf4 \strokec4 : \cf6 \strokec6 Radius\cf4 \strokec4 .\cf8 \strokec8 circular\cf4 \strokec4 (\cf10 \strokec10 24.0\cf4 \strokec4 ),\cb1 \
+\cb3                   ),\cb1 \
+\cb3                 ),\cb1 \
+\cb3                 \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                       \cf5 \strokec5 "Tap to Pay"\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                         \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 20.0\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                       ),\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 24.0\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf6 \strokec6 Padding\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 padding\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 EdgeInsets\cf4 \strokec4 .\cf8 \strokec8 symmetric\cf4 \strokec4 (\cf7 \strokec7 horizontal\cf4 \strokec4 : \cf10 \strokec10 16.0\cf4 \strokec4 ),\cb1 \
+\cb3                       \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Row\cf4 \strokec4 (\cb1 \
+\cb3                         \cf7 \strokec7 mainAxisAlignment\cf4 \strokec4 : \cf6 \strokec6 MainAxisAlignment\cf4 \strokec4 .\cf11 \strokec11 spaceBetween\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                           \cf6 \strokec6 ElevatedButton\cf4 \strokec4 (\cb1 \
+\cb3                             \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 ElevatedButton\cf4 \strokec4 .\cf8 \strokec8 styleFrom\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 shape\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 StadiumBorder\cf4 \strokec4 (),\cb1 \
+\cb3                               \cf7 \strokec7 backgroundColor\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                             ),\cb1 \
+\cb3                             \cf7 \strokec7 onPressed\cf4 \strokec4 : () \{\},\cb1 \
+\cb3                             \cf7 \strokec7 child\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                               \cf5 \strokec5 "Add to Balance"\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                 \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 10\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 black\cf4 \strokec4 ,\cb1 \
+\cb3                               ),\cb1 \
+\cb3                             ),\cb1 \
+\cb3                           ),\cb1 \
+\cb3                           \cf6 \strokec6 Row\cf4 \strokec4 (\cb1 \
+\cb3                             \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                               \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                                 \cf5 \strokec5 "USD"\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 10\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w500\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                               ),\cb1 \
+\cb3                               \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                                 \cf5 \strokec5 "\cf13 \strokec13 \\$\cf5 \strokec5 "\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 32\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPurple4\cf4 \strokec4 ,\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                               ),\cb1 \
+\cb3                               \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                                 \cf5 \strokec5 "267"\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 32\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                               ),\cb1 \
+\cb3                             ],\cb1 \
+\cb3                           ),\cb1 \
+\cb3                         ],\cb1 \
+\cb3                       ),\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 40\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf6 \strokec6 GestureDetector\cf4 \strokec4 (\cb1 \
+\cb3                         \cf7 \strokec7 onTap\cf4 \strokec4 : () \{\cb1 \
+\cb3                           \cf8 \strokec8 showFancyCustomDialog\cf4 \strokec4 (\cf7 \strokec7 context\cf4 \strokec4 );\cb1 \
+\cb3                         \},\cb1 \
+\cb3                         \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Image\cf4 \strokec4 .\cf8 \strokec8 asset\cf4 \strokec4 (\cf5 \strokec5 "assets/images/holdcard.png"\cf4 \strokec4 )),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 12\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                       \cf5 \strokec5 "Tap & Hold Card on Back"\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                         \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 14\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                         \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                       ),\cb1 \
+\cb3                     ),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Spacer\cf4 \strokec4 (),\cb1 \
+\cb3                     \cf6 \strokec6 SvgPicture\cf4 \strokec4 .\cf8 \strokec8 asset\cf4 \strokec4 (\cf5 \strokec5 "assets/images/payments.svg"\cf4 \strokec4 ),\cb1 \
+\cb3                     \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 40\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                   ],\cb1 \
+\cb3                 ),\cb1 \
+\cb3               ),\cb1 \
+\cb3             ),\cb1 \
+\cb3           ],\cb1 \
+\cb3         ),\cb1 \
+\cb3       ),\cb1 \
+\cb3     );\cb1 \
+\cb3   \}\cb1 \
+\
+\cb3   \cf2 \strokec2 void\cf4 \strokec4  \cf8 \strokec8 showFancyCustomDialog\cf4 \strokec4 (\cf6 \strokec6 BuildContext\cf4 \strokec4  \cf7 \strokec7 context\cf4 \strokec4 ) \{\cb1 \
+\cb3     \cf6 \strokec6 Dialog\cf4 \strokec4  \cf7 \strokec7 fancyDialog\cf4 \strokec4  = \cf6 \strokec6 Dialog\cf4 \strokec4 (\cb1 \
+\cb3       \cf7 \strokec7 shape\cf4 \strokec4 : \cf6 \strokec6 RoundedRectangleBorder\cf4 \strokec4 (\cb1 \
+\cb3         \cf7 \strokec7 borderRadius\cf4 \strokec4 : \cf6 \strokec6 BorderRadius\cf4 \strokec4 .\cf8 \strokec8 circular\cf4 \strokec4 (\cf10 \strokec10 12.0\cf4 \strokec4 ),\cb1 \
+\cb3       ),\cb1 \
+\cb3       \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3         \cf7 \strokec7 decoration\cf4 \strokec4 : \cf6 \strokec6 BoxDecoration\cf4 \strokec4 (\cb1 \
+\cb3           \cf7 \strokec7 borderRadius\cf4 \strokec4 : \cf6 \strokec6 BorderRadius\cf4 \strokec4 .\cf8 \strokec8 circular\cf4 \strokec4 (\cf10 \strokec10 20.0\cf4 \strokec4 ),\cb1 \
+\cb3         ),\cb1 \
+\cb3         \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 210.0\cf4 \strokec4 ,\cb1 \
+\cb3         \cf7 \strokec7 width\cf4 \strokec4 : \cf10 \strokec10 350.0\cf4 \strokec4 ,\cb1 \
+\cb3         \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Stack\cf4 \strokec4 (\cb1 \
+\cb3           \cf7 \strokec7 children\cf4 \strokec4 : <\cf6 \strokec6 Widget\cf4 \strokec4 >[\cb1 \
+\cb3             \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3               \cf7 \strokec7 width\cf4 \strokec4 : \cf6 \strokec6 double\cf4 \strokec4 .\cf7 \strokec7 infinity\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 210\cf4 \strokec4 ,\cb1 \
+\cb3               \cf7 \strokec7 decoration\cf4 \strokec4 : \cf6 \strokec6 BoxDecoration\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kDarkPurple6\cf4 \strokec4 ,\cb1 \
+\cb3                 \cf7 \strokec7 borderRadius\cf4 \strokec4 : \cf6 \strokec6 BorderRadius\cf4 \strokec4 .\cf8 \strokec8 circular\cf4 \strokec4 (\cf10 \strokec10 12.0\cf4 \strokec4 ),\cb1 \
+\cb3               ),\cb1 \
+\cb3               \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                   \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                     \cf5 \strokec5 "Select  Entry Method"\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 14\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                   ),\cb1 \
+\cb3                   \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 18.0\cf4 \strokec4 ,\cb1 \
+\cb3                   ),\cb1 \
+\cb3                   \cf6 \strokec6 Padding\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 padding\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 EdgeInsets\cf4 \strokec4 .\cf8 \strokec8 symmetric\cf4 \strokec4 (\cf7 \strokec7 horizontal\cf4 \strokec4 : \cf10 \strokec10 20.0\cf4 \strokec4 ),\cb1 \
+\cb3                     \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Row\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 mainAxisAlignment\cf4 \strokec4 : \cf6 \strokec6 MainAxisAlignment\cf4 \strokec4 .\cf11 \strokec11 spaceBetween\cf4 \strokec4 ,\cb1 \
+\cb3                       \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                         \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                           \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                             \cf6 \strokec6 Image\cf4 \strokec4 .\cf8 \strokec8 asset\cf4 \strokec4 (\cf5 \strokec5 "assets/images/scancard.png"\cf4 \strokec4 ),\cb1 \
+\cb3                             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ,\cb1 \
+\cb3                             ),\cb1 \
+\cb3                             \cf6 \strokec6 Row\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 children\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  [\cb1 \
+\cb3                                 \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf5 \strokec5 "Scan Card"\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                     \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 11.0\cf4 \strokec4 ,\cb1 \
+\cb3                                     \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                                     \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                                   ),\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                                 \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf7 \strokec7 width\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ,\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                                 \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                                   \cf5 \strokec5 "(fastest)"\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3                                   \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                     \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 11.0\cf4 \strokec4 ,\cb1 \
+\cb3                                     \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Color\cf4 \strokec4 (\cf10 \strokec10 0xff28750D\cf4 \strokec4 ),\cb1 \
+\cb3                                     \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w400\cf4 \strokec4 ,\cb1 \
+\cb3                                   ),\cb1 \
+\cb3                                 ),\cb1 \
+\cb3                               ],\cb1 \
+\cb3                             ),\cb1 \
+\cb3                           ],\cb1 \
+\cb3                         ),\cb1 \
+\cb3                         \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                           \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                             \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 50.0\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 width\cf4 \strokec4 : \cf10 \strokec10 1.0\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 margin\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 EdgeInsets\cf4 \strokec4 .\cf8 \strokec8 only\cf4 \strokec4 (\cf7 \strokec7 bottom\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ),\cb1 \
+\cb3                             ),\cb1 \
+\cb3                             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                               \cf5 \strokec5 "OR"\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                 \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 11.0\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                               ),\cb1 \
+\cb3                             ),\cb1 \
+\cb3                             \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 margin\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 EdgeInsets\cf4 \strokec4 .\cf8 \strokec8 only\cf4 \strokec4 (\cf7 \strokec7 top\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ),\cb1 \
+\cb3                               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 50.0\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 width\cf4 \strokec4 : \cf10 \strokec10 1.0\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                             ),\cb1 \
+\cb3                           ],\cb1 \
+\cb3                         ),\cb1 \
+\cb3                         \cf6 \strokec6 Column\cf4 \strokec4 (\cb1 \
+\cb3                           \cf7 \strokec7 children\cf4 \strokec4 : [\cb1 \
+\cb3                             \cf6 \strokec6 Image\cf4 \strokec4 .\cf8 \strokec8 asset\cf4 \strokec4 (\cf5 \strokec5 "assets/images/typecard.png"\cf4 \strokec4 ),\cb1 \
+\cb3                             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cb1 \
+\cb3                               \cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ,\cb1 \
+\cb3                             ),\cb1 \
+\cb3                             \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Text\cf4 \strokec4 (\cb1 \
+\cb3                               \cf5 \strokec5 "Type  Card Details"\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 textAlign\cf4 \strokec4 : \cf6 \strokec6 TextAlign\cf4 \strokec4 .\cf11 \strokec11 center\cf4 \strokec4 ,\cb1 \
+\cb3                               \cf7 \strokec7 style\cf4 \strokec4 : \cf6 \strokec6 TextStyle\cf4 \strokec4 (\cb1 \
+\cb3                                 \cf7 \strokec7 fontSize\cf4 \strokec4 : \cf10 \strokec10 11.0\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                                 \cf7 \strokec7 fontWeight\cf4 \strokec4 : \cf6 \strokec6 FontWeight\cf4 \strokec4 .\cf7 \strokec7 w600\cf4 \strokec4 ,\cb1 \
+\cb3                               ),\cb1 \
+\cb3                             ),\cb1 \
+\cb3                           ],\cb1 \
+\cb3                         ),\cb1 \
+\cb3                         \cb1 \
+\cb3                       ],\cb1 \
+\cb3                     ),\cb1 \
+\cb3                   ),\cb1 \
+\cb3                   \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 SizedBox\cf4 \strokec4 (\cf7 \strokec7 height\cf4 \strokec4 : \cf10 \strokec10 6.0\cf4 \strokec4 ,),\cb1 \
+\cb3                   \cf6 \strokec6 DotsIndicator\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 dotsCount\cf4 \strokec4 : \cf10 \strokec10 3\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 position\cf4 \strokec4 : \cf10 \strokec10 0\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 decorator\cf4 \strokec4 : \cf6 \strokec6 DotsDecorator\cf4 \strokec4 (\cb1 \
+\cb3                       \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kBlack\cf4 \strokec4 , \cf12 \strokec12 // Inactive color\cf4 \cb1 \strokec4 \
+\cb3                       \cf7 \strokec7 activeColor\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPrimaryColor\cf4 \strokec4 ,\cb1 \
+\cb3                     ),\cb1 \
+\cb3                   ),\cb1 \
+\cb3                 ],\cb1 \
+\cb3               ),\cb1 \
+\cb3             ),\cb1 \
+\cb3             \cf6 \strokec6 Align\cf4 \strokec4 (\cb1 \
+\cb3               \cf12 \strokec12 // These values are based on trial & error method\cf4 \cb1 \strokec4 \
+\cb3               \cf7 \strokec7 alignment\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Alignment\cf4 \strokec4 (\cf10 \strokec10 1.05\cf4 \strokec4 , -\cf10 \strokec10 1.05\cf4 \strokec4 ),\cb1 \
+\cb3               \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 InkWell\cf4 \strokec4 (\cb1 \
+\cb3                 \cf7 \strokec7 onTap\cf4 \strokec4 : () \{\cb1 \
+\cb3                   \cf6 \strokec6 Navigator\cf4 \strokec4 .\cf8 \strokec8 pop\cf4 \strokec4 (\cf7 \strokec7 context\cf4 \strokec4 );\cb1 \
+\cb3                 \},\cb1 \
+\cb3                 \cf7 \strokec7 child\cf4 \strokec4 : \cf6 \strokec6 Container\cf4 \strokec4 (\cb1 \
+\cb3                   \cf7 \strokec7 decoration\cf4 \strokec4 : \cf6 \strokec6 BoxDecoration\cf4 \strokec4 (\cb1 \
+\cb3                     \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 APPCOLORS\cf4 \strokec4 ().\cf7 \strokec7 kPrimaryColor\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 borderRadius\cf4 \strokec4 : \cf6 \strokec6 BorderRadius\cf4 \strokec4 .\cf8 \strokec8 circular\cf4 \strokec4 (\cf10 \strokec10 12\cf4 \strokec4 ),\cb1 \
+\cb3                   ),\cb1 \
+\cb3                   \cf7 \strokec7 child\cf4 \strokec4 : \cf2 \strokec2 const\cf4 \strokec4  \cf6 \strokec6 Icon\cf4 \strokec4 (\cb1 \
+\cb3                     \cf6 \strokec6 Icons\cf4 \strokec4 .\cf7 \strokec7 close\cf4 \strokec4 ,\cb1 \
+\cb3                     \cf7 \strokec7 color\cf4 \strokec4 : \cf6 \strokec6 Colors\cf4 \strokec4 .\cf7 \strokec7 white\cf4 \strokec4 ,\cb1 \
+\cb3                   ),\cb1 \
+\cb3                 ),\cb1 \
+\cb3               ),\cb1 \
+\cb3             ),\cb1 \
+\cb3           ],\cb1 \
+\cb3         ),\cb1 \
+\cb3       ),\cb1 \
+\cb3     );\cb1 \
+\cb3     \cf8 \strokec8 showDialog\cf4 \strokec4 (\cb1 \
+\cb3         \cf7 \strokec7 context\cf4 \strokec4 : \cf7 \strokec7 context\cf4 \strokec4 , \cf7 \strokec7 builder\cf4 \strokec4 : (\cf6 \strokec6 BuildContext\cf4 \strokec4  \cf7 \strokec7 context\cf4 \strokec4 ) => \cf7 \strokec7 fancyDialog\cf4 \strokec4 );\cb1 \
+\cb3   \}\cb1 \
+\cb3 \}\cb1 \
+\
+}

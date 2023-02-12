@@ -442,10 +442,15 @@ class SingleTopOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
       child: Container(
         decoration: BoxDecoration(
-          color: title == "312" ? kYellowColor : kPinkColor,
+          color: title == "\$212"
+              ? const Color(0xff5B17EA)
+              : title == "81"
+                  ? const Color(0xff00C5C5)
+                  : title == "312"
+                      ? kYellowColor
+                      : kPinkColor,
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
@@ -485,7 +490,7 @@ class SingleTopOption extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        title == "312" ? "kwh" : "",
+                        title == "\$212"?".20": title == "312" ? "kwh" : "",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12,
@@ -510,6 +515,7 @@ class SingleRoomHomeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Container(
       margin: EdgeInsets.only(left: SizeConfig.screenWidth! * 0.02),
       height: SizeConfig.screenHeight! * 0.2,

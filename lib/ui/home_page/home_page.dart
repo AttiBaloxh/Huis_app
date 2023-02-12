@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                                     BorderRadius.circular(borderRadiusValue),
                               ),
                             ),
-                            child: const Icon(Icons.add),
+                            child: const Icon(Icons.add,color: Colors.white,),
                           ),
                         ),
                       ],

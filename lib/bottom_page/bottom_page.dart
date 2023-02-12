@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:huis_light/helper/app_colors/app_colors.dart';
+import 'package:huis_light/ui/automation_page/automation_page.dart';
 import 'package:huis_light/ui/home_page/home_page.dart';
+import 'package:huis_light/ui/report_page/report_page.dart';
+import 'package:huis_light/ui/settings_page/settings_page.dart';
 
 class BottomPage extends StatefulWidget {
   const BottomPage({super.key});
@@ -16,18 +19,9 @@ class _BottomPageState extends State<BottomPage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: School',
-      style: optionStyle,
-    ),
+    AutomationPage(),
+    ReportPage(),
+    SettingsPage(),
   ];
 
   void _onItemTapped(int index) {

@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:huis_light/app_comp/represent_function.dart';
+import 'package:huis_light/app_rought/app_rought.dart';
 import 'package:huis_light/helper/app_colors/app_colors.dart';
 import 'package:huis_light/helper/static_values/static_values.dart';
-import 'package:huis_light/ui/active_device/active_comp/search_comp.dart';
+import 'package:huis_light/ui/add_device/device_security/device_security.dart';
+import 'package:huis_light/ui/add_device/search_device/search_device.dart';
+import 'package:huis_light/ui/scan_qr_page/scan_qr_page.dart';
 
 class AddDevicePage extends StatelessWidget {
   const AddDevicePage({super.key});
@@ -43,12 +46,8 @@ class AddDevicePage extends StatelessWidget {
                     CupertinoButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
-                        showDialog(
-                          context: context,
-                          barrierColor:
-                              const Color(0xffdddddd).withOpacity(0.9),
-                          builder: (_) => const SearchComp(),
-                        );
+                        pushToNextPage(
+                            context: context, className: const ScanQRCode());
                       },
                       child: Container(
                         height: 50,
@@ -76,7 +75,7 @@ class AddDevicePage extends StatelessWidget {
                           context: context,
                           barrierColor:
                               const Color(0xffdddddd).withOpacity(0.9),
-                          builder: (_) => const SearchComp(),
+                          builder: (_) => const SearchDevice(),
                         );
                       },
                       child: Container(
@@ -160,12 +159,65 @@ class AddDevicePage extends StatelessWidget {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 crossAxisCount: 2,
-                childAspectRatio: 1.8,
+                childAspectRatio: 2.5,
                 children: const [
-                  SingleLightManually(),
-                  SingleLightManually(),
-                  SingleLightManually(),
-                  SingleLightManually(),
+                  SingleLightManually(
+                    title: "Smart lamp",
+                    icon: "smart_lamp.svg",
+                  ),
+                  SingleLightManually(
+                    title: "Desk lamp",
+                    icon: "desklamp.svg",
+                  ),
+                  SingleLightManually(
+                    title: "Outdoor lamp",
+                    icon: "outdoor_lamp.svg",
+                  ),
+                  SingleLightManually(
+                    title: "Light bulb",
+                    icon: "bulb.svg",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 12.0,
+              ),
+              const RepresentFunction(
+                trailingTitle: "",
+                title: "Security",
+                lengthOfActiveDevice: 7,
+              ),
+              GridView.count(
+                primary: false,
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(16),
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: 2,
+                childAspectRatio: 2.5,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      pushToNextPage(
+                          context: context, className: const DeviceSecurity());
+                    },
+                    child: const SingleLightManually(
+                      title: "Video camera",
+                      icon: "videocamera.svg",
+                    ),
+                  ),
+                  const SingleLightManually(
+                    title: "Smart lock",
+                    icon: "smartlock.svg",
+                  ),
+                  const SingleLightManually(
+                    title: "Outdoor lamp",
+                    icon: "outdoor_lamp.svg",
+                  ),
+                  const SingleLightManually(
+                    title: "Light bulb",
+                    icon: "bulb.svg",
+                  ),
                 ],
               ),
             ],
@@ -177,7 +229,9 @@ class AddDevicePage extends StatelessWidget {
 }
 
 class SingleLightManually extends StatelessWidget {
-  const SingleLightManually({super.key});
+  final String title, icon;
+  const SingleLightManually(
+      {super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -185,6 +239,27 @@ class SingleLightManually extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadiusValue),
         color: const Color(0xffF0F0F0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(right: title == "Smart lamp" ? 10 : 0),
+            child: SvgPicture.asset(
+              "assets/icons/$icon",
+            ),
+          ),
+          const SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:huis_light/ui/add_device/add_device.dart';
+import 'package:huis_light/ui/obboarding_screen.dart';
+
 
 
 void main() {
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        useMaterial3: true,
         fontFamily: "PlusSans",
       ),
-      home:  const AddDevicePage(),
+      home: const OnBoarding(),
     );
   }
 }

@@ -36,7 +36,7 @@ class _ScanQRCodeState extends State<ScanQRCode> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Expanded(child: _buildQrView(context)),
+          _buildQrView(context),
           Column(
             children: [
               Padding(
@@ -80,7 +80,8 @@ class _ScanQRCodeState extends State<ScanQRCode> {
                       child: FutureBuilder(
                         future: controller?.getFlashStatus(),
                         builder: (context, snapshot) {
-                          return Container(
+                          
+                          return snapshot.hasData? Container(
                             height: 50,
                             width: 50,
                             decoration: BoxDecoration(
@@ -93,7 +94,7 @@ class _ScanQRCodeState extends State<ScanQRCode> {
                               snapshot.data! ? Icons.flash_off : Icons.flash_on,
                               color: Colors.white,
                             ),
-                          );
+                          ):const SizedBox.shrink();
                         },
                       ),
                     ),
